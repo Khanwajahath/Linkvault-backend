@@ -14,8 +14,10 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
-
+app.use(cors({
+  origin: 'https://linkvault-frontend.vercel.app',
+  credentials: true
+}));
 // MongoDB Connection
 const MONGO_URI = process.env.MONGODB_URI;
 console.log(MONGO_URI);
